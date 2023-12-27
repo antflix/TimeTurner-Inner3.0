@@ -12,7 +12,6 @@
 		CECBB0732B3BC6A9002A695B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECBB0722B3BC6A9002A695B /* Assets.xcassets */; };
 		CECBB0772B3BC6A9002A695B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECBB0762B3BC6A9002A695B /* Preview Assets.xcassets */; };
 		CECBB08D2B3BC7D0002A695B /* toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB07E2B3BC7D0002A695B /* toolbar.swift */; };
-		CECBB08E2B3BC7D0002A695B /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB07F2B3BC7D0002A695B /* ContactsView.swift */; };
 		CECBB08F2B3BC7D0002A695B /* timePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0802B3BC7D0002A695B /* timePicker.swift */; };
 		CECBB0902B3BC7D0002A695B /* getContact2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0812B3BC7D0002A695B /* getContact2.swift */; };
 		CECBB0912B3BC7D0002A695B /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0822B3BC7D0002A695B /* AlarmSettingView.swift */; };
@@ -45,7 +44,6 @@
 		CECBB0742B3BC6A9002A695B /* Time_Turner_Inner_3_0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Time_Turner_Inner_3_0.entitlements; sourceTree = "<group>"; };
 		CECBB0762B3BC6A9002A695B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CECBB07E2B3BC7D0002A695B /* toolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toolbar.swift; sourceTree = "<group>"; };
-		CECBB07F2B3BC7D0002A695B /* ContactsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		CECBB0802B3BC7D0002A695B /* timePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timePicker.swift; sourceTree = "<group>"; };
 		CECBB0812B3BC7D0002A695B /* getContact2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getContact2.swift; sourceTree = "<group>"; };
 		CECBB0822B3BC7D0002A695B /* AlarmSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSettingView.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				CECBB07E2B3BC7D0002A695B /* toolbar.swift */,
-				CECBB07F2B3BC7D0002A695B /* ContactsView.swift */,
 				CECBB0802B3BC7D0002A695B /* timePicker.swift */,
 				CECBB0812B3BC7D0002A695B /* getContact2.swift */,
 				CECBB0822B3BC7D0002A695B /* AlarmSettingView.swift */,
@@ -267,7 +264,6 @@
 				CECBB0962B3BC7D0002A695B /* LaunchScreen.swift in Sources */,
 				CECBB0982B3BC7D0002A695B /* P22_FabulaToggleStyle.swift in Sources */,
 				CECBB06F2B3BC6A7002A695B /* Time_Turner_Inner_3_0App.swift in Sources */,
-				CECBB08E2B3BC7D0002A695B /* ContactsView.swift in Sources */,
 				CECBB0952B3BC7D0002A695B /* toggle.swift in Sources */,
 				CECBB0972B3BC7D0002A695B /* AlarmSound.swift in Sources */,
 				CECBB0992B3BC7D0002A695B /* hoursPicker.swift in Sources */,
