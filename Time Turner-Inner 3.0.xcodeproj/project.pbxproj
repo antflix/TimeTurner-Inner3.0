@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CECBB06F2B3BC6A7002A695B /* Time_Turner_Inner_3_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB06E2B3BC6A7002A695B /* Time_Turner_Inner_3_0App.swift */; };
+		CECBB0712B3BC6A7002A695B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0702B3BC6A7002A695B /* ContentView.swift */; };
+		CECBB0732B3BC6A9002A695B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECBB0722B3BC6A9002A695B /* Assets.xcassets */; };
+		CECBB0772B3BC6A9002A695B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECBB0762B3BC6A9002A695B /* Preview Assets.xcassets */; };
+		CECBB08D2B3BC7D0002A695B /* toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB07E2B3BC7D0002A695B /* toolbar.swift */; };
+		CECBB08E2B3BC7D0002A695B /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB07F2B3BC7D0002A695B /* ContactsView.swift */; };
+		CECBB08F2B3BC7D0002A695B /* timePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0802B3BC7D0002A695B /* timePicker.swift */; };
+		CECBB0902B3BC7D0002A695B /* getContact2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0812B3BC7D0002A695B /* getContact2.swift */; };
+		CECBB0912B3BC7D0002A695B /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0822B3BC7D0002A695B /* AlarmSettingView.swift */; };
+		CECBB0922B3BC7D0002A695B /* customAlarm-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CECBB0832B3BC7D0002A695B /* customAlarm-2.mp3 */; };
+		CECBB0932B3BC7D0002A695B /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CECBB0842B3BC7D0002A695B /* alarm.mp3 */; };
+		CECBB0942B3BC7D0002A695B /* modetogglebutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0852B3BC7D0002A695B /* modetogglebutton.swift */; };
+		CECBB0952B3BC7D0002A695B /* toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0862B3BC7D0002A695B /* toggle.swift */; };
+		CECBB0962B3BC7D0002A695B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0872B3BC7D0002A695B /* LaunchScreen.swift */; };
+		CECBB0972B3BC7D0002A695B /* AlarmSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0882B3BC7D0002A695B /* AlarmSound.swift */; };
+		CECBB0982B3BC7D0002A695B /* P22_FabulaToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0892B3BC7D0002A695B /* P22_FabulaToggleStyle.swift */; };
+		CECBB0992B3BC7D0002A695B /* hoursPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB08A2B3BC7D0002A695B /* hoursPicker.swift */; };
+		CECBB09A2B3BC7D0002A695B /* darkmode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB08B2B3BC7D0002A695B /* darkmode.swift */; };
+		CECBB09B2B3BC7D0002A695B /* customalarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CECBB08C2B3BC7D0002A695B /* customalarm.mp3 */; };
+		CECBB0AA2B3BC7F6002A695B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB09C2B3BC7F6002A695B /* DataManager.swift */; };
+		CECBB0AC2B3BC7F6002A695B /* ContactPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB09F2B3BC7F6002A695B /* ContactPickerViewController.swift */; };
+		CECBB0AD2B3BC7F6002A695B /* SMSGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0A02B3BC7F6002A695B /* SMSGenerator.swift */; };
+		CECBB0AF2B3BC7F6002A695B /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0A22B3BC7F6002A695B /* extensions.swift */; };
+		CECBB0B02B3BC7F6002A695B /* ContactsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0A32B3BC7F6002A695B /* ContactsSelectionView.swift */; };
+		CECBB0B12B3BC7F6002A695B /* PreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0A52B3BC7F6002A695B /* PreViews.swift */; };
+		CECBB0B22B3BC7F6002A695B /* EmployeesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0A62B3BC7F6002A695B /* EmployeesViews.swift */; };
+		CECBB0B32B3BC7F6002A695B /* JobsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0A72B3BC7F6002A695B /* JobsViews.swift */; };
+		CECBB0B42B3BC7F6002A695B /* EmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB0A82B3BC7F6002A695B /* EmployeeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CECBB06B2B3BC6A7002A695B /* Time Turner-Inner 3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Turner-Inner 3.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECBB06E2B3BC6A7002A695B /* Time_Turner_Inner_3_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_Turner_Inner_3_0App.swift; sourceTree = "<group>"; };
+		CECBB0702B3BC6A7002A695B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
+		CECBB0722B3BC6A9002A695B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CECBB0742B3BC6A9002A695B /* Time_Turner_Inner_3_0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Time_Turner_Inner_3_0.entitlements; sourceTree = "<group>"; };
+		CECBB0762B3BC6A9002A695B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CECBB07E2B3BC7D0002A695B /* toolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toolbar.swift; sourceTree = "<group>"; };
+		CECBB07F2B3BC7D0002A695B /* ContactsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		CECBB0802B3BC7D0002A695B /* timePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timePicker.swift; sourceTree = "<group>"; };
+		CECBB0812B3BC7D0002A695B /* getContact2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getContact2.swift; sourceTree = "<group>"; };
+		CECBB0822B3BC7D0002A695B /* AlarmSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSettingView.swift; sourceTree = "<group>"; };
+		CECBB0832B3BC7D0002A695B /* customAlarm-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "customAlarm-2.mp3"; sourceTree = "<group>"; };
+		CECBB0842B3BC7D0002A695B /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		CECBB0852B3BC7D0002A695B /* modetogglebutton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = modetogglebutton.swift; sourceTree = "<group>"; };
+		CECBB0862B3BC7D0002A695B /* toggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toggle.swift; sourceTree = "<group>"; };
+		CECBB0872B3BC7D0002A695B /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		CECBB0882B3BC7D0002A695B /* AlarmSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSound.swift; sourceTree = "<group>"; };
+		CECBB0892B3BC7D0002A695B /* P22_FabulaToggleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P22_FabulaToggleStyle.swift; sourceTree = "<group>"; };
+		CECBB08A2B3BC7D0002A695B /* hoursPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hoursPicker.swift; sourceTree = "<group>"; };
+		CECBB08B2B3BC7D0002A695B /* darkmode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = darkmode.swift; sourceTree = "<group>"; };
+		CECBB08C2B3BC7D0002A695B /* customalarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = customalarm.mp3; sourceTree = "<group>"; };
+		CECBB09C2B3BC7F6002A695B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CECBB09F2B3BC7F6002A695B /* ContactPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPickerViewController.swift; sourceTree = "<group>"; };
+		CECBB0A02B3BC7F6002A695B /* SMSGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSGenerator.swift; sourceTree = "<group>"; };
+		CECBB0A22B3BC7F6002A695B /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		CECBB0A32B3BC7F6002A695B /* ContactsSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsSelectionView.swift; sourceTree = "<group>"; };
+		CECBB0A52B3BC7F6002A695B /* PreViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViews.swift; sourceTree = "<group>"; };
+		CECBB0A62B3BC7F6002A695B /* EmployeesViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeesViews.swift; sourceTree = "<group>"; };
+		CECBB0A72B3BC7F6002A695B /* JobsViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsViews.swift; sourceTree = "<group>"; };
+		CECBB0A82B3BC7F6002A695B /* EmployeeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CECBB0682B3BC6A7002A695B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CECBB0622B3BC6A7002A695B = {
+			isa = PBXGroup;
+			children = (
+				CECBB06D2B3BC6A7002A695B /* Time Turner-Inner 3.0 */,
+				CECBB06C2B3BC6A7002A695B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CECBB06C2B3BC6A7002A695B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CECBB06B2B3BC6A7002A695B /* Time Turner-Inner 3.0.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CECBB06D2B3BC6A7002A695B /* Time Turner-Inner 3.0 */ = {
+			isa = PBXGroup;
+			children = (
+				CECBB09C2B3BC7F6002A695B /* DataManager.swift */,
+				CECBB09D2B3BC7F6002A695B /* functions */,
+				CECBB0A42B3BC7F6002A695B /* views */,
+				CECBB07D2B3BC7D0002A695B /* components */,
+				CECBB06E2B3BC6A7002A695B /* Time_Turner_Inner_3_0App.swift */,
+				CECBB0722B3BC6A9002A695B /* Assets.xcassets */,
+				CECBB0742B3BC6A9002A695B /* Time_Turner_Inner_3_0.entitlements */,
+				CECBB0752B3BC6A9002A695B /* Preview Content */,
+			);
+			path = "Time Turner-Inner 3.0";
+			sourceTree = "<group>";
+		};
+		CECBB0752B3BC6A9002A695B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CECBB0762B3BC6A9002A695B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CECBB07D2B3BC7D0002A695B /* components */ = {
+			isa = PBXGroup;
+			children = (
+				CECBB07E2B3BC7D0002A695B /* toolbar.swift */,
+				CECBB07F2B3BC7D0002A695B /* ContactsView.swift */,
+				CECBB0802B3BC7D0002A695B /* timePicker.swift */,
+				CECBB0812B3BC7D0002A695B /* getContact2.swift */,
+				CECBB0822B3BC7D0002A695B /* AlarmSettingView.swift */,
+				CECBB0832B3BC7D0002A695B /* customAlarm-2.mp3 */,
+				CECBB0842B3BC7D0002A695B /* alarm.mp3 */,
+				CECBB0852B3BC7D0002A695B /* modetogglebutton.swift */,
+				CECBB0862B3BC7D0002A695B /* toggle.swift */,
+				CECBB0872B3BC7D0002A695B /* LaunchScreen.swift */,
+				CECBB0882B3BC7D0002A695B /* AlarmSound.swift */,
+				CECBB0892B3BC7D0002A695B /* P22_FabulaToggleStyle.swift */,
+				CECBB08A2B3BC7D0002A695B /* hoursPicker.swift */,
+				CECBB08B2B3BC7D0002A695B /* darkmode.swift */,
+				CECBB08C2B3BC7D0002A695B /* customalarm.mp3 */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		CECBB09D2B3BC7F6002A695B /* functions */ = {
+			isa = PBXGroup;
+			children = (
+				CECBB09F2B3BC7F6002A695B /* ContactPickerViewController.swift */,
+				CECBB0A02B3BC7F6002A695B /* SMSGenerator.swift */,
+				CECBB0A22B3BC7F6002A695B /* extensions.swift */,
+				CECBB0A32B3BC7F6002A695B /* ContactsSelectionView.swift */,
+			);
+			path = functions;
+			sourceTree = "<group>";
+		};
+		CECBB0A42B3BC7F6002A695B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CECBB0702B3BC6A7002A695B /* ContentView.swift */,
+				CECBB0A52B3BC7F6002A695B /* PreViews.swift */,
+				CECBB0A62B3BC7F6002A695B /* EmployeesViews.swift */,
+				CECBB0A72B3BC7F6002A695B /* JobsViews.swift */,
+				CECBB0A82B3BC7F6002A695B /* EmployeeView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CECBB06A2B3BC6A7002A695B /* Time Turner-Inner 3.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CECBB07A2B3BC6A9002A695B /* Build configuration list for PBXNativeTarget "Time Turner-Inner 3.0" */;
+			buildPhases = (
+				CECBB0672B3BC6A7002A695B /* Sources */,
+				CECBB0682B3BC6A7002A695B /* Frameworks */,
+				CECBB0692B3BC6A7002A695B /* Resources */,
+				CE587A1E2B3CA26E009629C4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Time Turner-Inner 3.0";
+			productName = "Time Turner-Inner 3.0";
+			productReference = CECBB06B2B3BC6A7002A695B /* Time Turner-Inner 3.0.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CECBB0632B3BC6A7002A695B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					CECBB06A2B3BC6A7002A695B = {
+						CreatedOnToolsVersion = 15.1;
+					};
+				};
+			};
+			buildConfigurationList = CECBB0662B3BC6A7002A695B /* Build configuration list for PBXProject "Time Turner-Inner 3.0" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CECBB0622B3BC6A7002A695B;
+			productRefGroup = CECBB06C2B3BC6A7002A695B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CECBB06A2B3BC6A7002A695B /* Time Turner-Inner 3.0 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CECBB0692B3BC6A7002A695B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECBB09B2B3BC7D0002A695B /* customalarm.mp3 in Resources */,
+				CECBB0932B3BC7D0002A695B /* alarm.mp3 in Resources */,
+				CECBB0922B3BC7D0002A695B /* customAlarm-2.mp3 in Resources */,
+				CECBB0772B3BC6A9002A695B /* Preview Assets.xcassets in Resources */,
+				CECBB0732B3BC6A9002A695B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE587A1E2B3CA26E009629C4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"build Successful\"\nNOW=$(date +\"%Y-%m-%d_%H%M\")\n\n# Add debugging statements\necho \"Backing up files...\"\nrsync -ru --exclude=.git /Users/user/Desktop/Time\\ Turner-Inner\\ 3.0/Time\\ Turner-Inner\\ 3.0 /Users/user/Desktop/SparkListBackup/SparkList\n\necho \"Moving to backup directory...\"\ncd /Users/user/Desktop/SparkListBackup/SparkList\n\necho \"Adding files to Git...\"\ngit add -A\n\n#echo \"Committing changes...\"\n#git commit --allow-empty -m \"Backup: $NOW\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CECBB0672B3BC6A7002A695B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECBB0712B3BC6A7002A695B /* ContentView.swift in Sources */,
+				CECBB0AA2B3BC7F6002A695B /* DataManager.swift in Sources */,
+				CECBB08D2B3BC7D0002A695B /* toolbar.swift in Sources */,
+				CECBB0B12B3BC7F6002A695B /* PreViews.swift in Sources */,
+				CECBB09A2B3BC7D0002A695B /* darkmode.swift in Sources */,
+				CECBB0962B3BC7D0002A695B /* LaunchScreen.swift in Sources */,
+				CECBB0982B3BC7D0002A695B /* P22_FabulaToggleStyle.swift in Sources */,
+				CECBB06F2B3BC6A7002A695B /* Time_Turner_Inner_3_0App.swift in Sources */,
+				CECBB08E2B3BC7D0002A695B /* ContactsView.swift in Sources */,
+				CECBB0952B3BC7D0002A695B /* toggle.swift in Sources */,
+				CECBB0972B3BC7D0002A695B /* AlarmSound.swift in Sources */,
+				CECBB0992B3BC7D0002A695B /* hoursPicker.swift in Sources */,
+				CECBB0942B3BC7D0002A695B /* modetogglebutton.swift in Sources */,
+				CECBB0902B3BC7D0002A695B /* getContact2.swift in Sources */,
+				CECBB0AF2B3BC7F6002A695B /* extensions.swift in Sources */,
+				CECBB0AC2B3BC7F6002A695B /* ContactPickerViewController.swift in Sources */,
+				CECBB08F2B3BC7D0002A695B /* timePicker.swift in Sources */,
+				CECBB0912B3BC7D0002A695B /* AlarmSettingView.swift in Sources */,
+				CECBB0B42B3BC7F6002A695B /* EmployeeView.swift in Sources */,
+				CECBB0B02B3BC7F6002A695B /* ContactsSelectionView.swift in Sources */,
+				CECBB0AD2B3BC7F6002A695B /* SMSGenerator.swift in Sources */,
+				CECBB0B32B3BC7F6002A695B /* JobsViews.swift in Sources */,
+				CECBB0B22B3BC7F6002A695B /* EmployeesViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CECBB0782B3BC6A9002A695B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CECBB0792B3BC6A9002A695B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		CECBB07B2B3BC6A9002A695B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Time Turner-Inner 3.0/Time_Turner_Inner_3_0.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Time Turner-Inner 3.0/Preview Content\"";
+				DEVELOPMENT_TEAM = 729NUWS546;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Time Turner-Inner 3.0";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antflix.Time-Turner-Inner-3-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CECBB07C2B3BC6A9002A695B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Time Turner-Inner 3.0/Time_Turner_Inner_3_0.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Time Turner-Inner 3.0/Preview Content\"";
+				DEVELOPMENT_TEAM = 729NUWS546;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Time Turner-Inner 3.0";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antflix.Time-Turner-Inner-3-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CECBB0662B3BC6A7002A695B /* Build configuration list for PBXProject "Time Turner-Inner 3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CECBB0782B3BC6A9002A695B /* Debug */,
+				CECBB0792B3BC6A9002A695B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CECBB07A2B3BC6A9002A695B /* Build configuration list for PBXNativeTarget "Time Turner-Inner 3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CECBB07B2B3BC6A9002A695B /* Debug */,
+				CECBB07C2B3BC6A9002A695B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CECBB0632B3BC6A7002A695B /* Project object */;
+}
