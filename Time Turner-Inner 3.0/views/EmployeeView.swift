@@ -32,11 +32,7 @@ struct EmployeeView: View {
 							.font(Font.title.weight(.ultraLight))						.foregroundStyle(Color.white, Color.blue, Color.black)
 
 						Text("Employee Hours").font(Font.custom("Quicksand", size: 30).bold())
-							.frame( alignment: .center)
-
-						Text("Same crew, Same Hours").font(Font.custom("Quicksand", size: 12).bold())
 							.frame(maxWidth: .infinity * 0.90, alignment: .center)
-							.foregroundStyle(Color.black)
 					}
 
 					Button(action: {
@@ -52,11 +48,11 @@ struct EmployeeView: View {
 							Text("Instructions:")
 								.foregroundColor(Color("Color 6"))
 								.font(.title)
-
+							
 							Divider().frame(height: 2.0).background(
 								Color("Color 1")
 							).padding(.horizontal)
-
+							
 							VStack(alignment: .leading, spacing: 5) {
 								HStack {
 									Circle().frame(width: 5, height: 5).foregroundColor(Color("Color 1")) // Custom bullet point
@@ -110,7 +106,7 @@ struct EmployeeView: View {
 						}
 					}
 				}
-			}
+			}.scrollDismissesKeyboard(.interactively)
 
 			Divider().frame(height: 2.0).background(
 				Color("Color 2")
@@ -165,16 +161,12 @@ struct EmployeeView: View {
 									.font(.title)
 									.background(Color.clear)
 								VStack {
-									Text("Individual")
+									Text("Custom")
 										.foregroundColor(Color.green)
 										.background(Color.clear)
 										.frame(alignment: .leading)
 										.font(.title2)
-									Text("Hours")
-										.foregroundColor(Color.green)
-										.background(Color.clear)
-										.frame(alignment: .leading)
-										.font(.title2)
+									
 								}
 							}.frame(alignment: .bottomLeading)
 						}
@@ -188,11 +180,11 @@ struct EmployeeView: View {
 								Text("Next")
 									.foregroundColor(Color.green)
 									.background(Color.clear)
-									.font(.title)
+									.font(.title2)
 
 								Image(systemName: "arrow.right")
 									.foregroundColor(Color.green)
-									.font(.title)
+									.font(.title2)
 									.background(Color.clear)
 
 							}

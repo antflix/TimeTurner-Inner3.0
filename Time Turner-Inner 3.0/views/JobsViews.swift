@@ -200,7 +200,7 @@ struct JobsView: View {
 			VStack {
 				TextField("Search", text: $text).font(Font.custom("Quicksand", size: 25).bold())
 					.textFieldStyle(DefaultTextFieldStyle())
-
+					.submitLabel(.search)
 			}          .background(Color("Color 7"))
 
 		}

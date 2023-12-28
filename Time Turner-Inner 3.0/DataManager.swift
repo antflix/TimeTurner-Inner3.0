@@ -59,7 +59,9 @@ class DataManager: ObservableObject {
 	func saveEmployeeHours(name: String, hours: String) {
 		employeeData[name] = hours
 	}
-
+	func deleteEmployeeHours() {
+		employeeData = [:]
+	}
 	// Method to get hours for a given employee name from the dictionary
 	func hoursForEmployee(_ employeeName: String) -> String {
 		return employeeData[employeeName] ?? ""

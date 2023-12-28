@@ -5,6 +5,7 @@ struct EmployeesViews: View {
     @EnvironmentObject var dataManager: DataManager // Access DataManager passed via environmentObject
 
     @State private var showingPopover = false // Create a state variable to control popover visibility
+	@State private var navigateBack = false
 
     var isAnyEmployeeAssignedHours: Bool {
         // Check if any employee has assigned hours in DataManager
@@ -14,22 +15,21 @@ struct EmployeesViews: View {
 
 	var body: some View {
 		VStack {
-			VStack {
-				HStack {
+			VStack(spacing: 1) {
+				HStack(spacing: 1) {
+					BackButton(destination: EmployeeView(), isActive: $navigateBack).frame(alignment: .leading)
+
 					VStack {
 						Image("3times")
 							.aspectRatio(contentMode: .fit)
 							.symbolRenderingMode(.palette)
 							.foregroundStyle(Color.white, Color.blue, Color.black)
 							.font(Font.title.weight(.ultraLight))
-							.background(Color.clear)
-							.frame(alignment: .leading)
+							
 						Text("Employees").font(Font.custom("Quicksand", size: 30).bold())
 							.frame(maxWidth: .infinity * 0.90, alignment: .center)
 
-						Text("Different crews/Different Hours").font(Font.custom("Quicksand", size: 12).bold())
-							.frame(maxWidth: .infinity * 0.90, alignment: .center)
-							.foregroundStyle(Color.black)
+						
 					}
 					Button(action: {
 						// Toggle the popover state for this particular row
@@ -76,7 +76,7 @@ struct EmployeesViews: View {
 						.cornerRadius(8)
 					}
 				}
-				.padding()
+				.padding(.horizontal)
 				.background(Color.blue)
 				.foregroundColor(.white)
 				.font(.headline)
@@ -90,7 +90,7 @@ struct EmployeesViews: View {
 
 							.cornerRadius(8) // Optional: Add corner radius to rows
 					}
-				}
+				}.scrollDismissesKeyboard(.immediately)
 
 				VStack {
 					HStack {
@@ -164,7 +164,7 @@ struct EmployeeRowView: View {
                 .padding(.trailing)
                 .onChange(of: enteredHours) { newValue in
                     // Add a delay before handling the entered value
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+					DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         // Check if the entered value is a valid double
                         if let value = Double(newValue), value >= 0.0 && value <= 24.0 {
                             // Check if the entered value is a whole number or has only one decimal place

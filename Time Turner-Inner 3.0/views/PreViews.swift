@@ -49,7 +49,7 @@ struct PreViews: View {
         return VStack {
 			HStack {
 				Text("Text Preview").font(Font.custom("Quicksand", size: 30).bold())
-					.frame(maxWidth: .infinity * 0.90, alignment: .leading)
+					.frame(maxWidth: .infinity * 0.90, alignment: .center)
 			}
             .padding()
             .background(Color.blue)

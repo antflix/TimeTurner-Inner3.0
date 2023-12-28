@@ -159,7 +159,6 @@
 				CECBB0672B3BC6A7002A695B /* Sources */,
 				CECBB0682B3BC6A7002A695B /* Frameworks */,
 				CECBB0692B3BC6A7002A695B /* Resources */,
-				CE81D7972B3CDC7800610785 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -221,23 +220,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CE81D7972B3CDC7800610785 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\nif which swiftlint >/dev/null; then\n   swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n#periphery scan --project Time\\ Turner-Inner\\ 3.0.xcodeproj --schemes Time\\ Turner-Inner\\ 3.0 --targets Time\\ Turner-Inner\\ 3.0 --clean-build\n";
-		};
 		CE81D79C2B3CEC5900610785 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
