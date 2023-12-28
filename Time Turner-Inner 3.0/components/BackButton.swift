@@ -17,16 +17,16 @@ struct BackButton<Destination: View>: View {
 
 	var body: some View {
 		
-		NavigationLink(destination: destination, isActive: $isActive) {
-			Button(action: {
-				isActive = true
-				dataManager.deleteEmployeeHours()
-			}) {
+		NavigationLink(destination: destination) {
+			
 				Image(systemName: "arrow.left")
 					.foregroundColor(.white)
+					.buttonStyle(PlainButtonStyle())
+
 			}
 
 		}
 
 	}
-}
+
+

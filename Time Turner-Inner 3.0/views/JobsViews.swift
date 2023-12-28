@@ -98,7 +98,7 @@ struct JobsView: View {
 					}
 				}
 
-				NavigationLink(destination: EmployeeView().environmentObject(dataManager), isActive: $isEmployeeViewActive) {
+				NavigationLink(destination:EmployeeView().environmentObject(dataManager)) {
 					EmptyView() // Empty view to prevent the navigation link from being triggered
 				}
 			}

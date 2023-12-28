@@ -83,7 +83,7 @@ struct MyToolbarItems: ToolbarContent {
 							.onTapGesture {
 								showConfirmation = true
 							}
-
+						
 							.confirmationDialog(
 								"Clear SMS Data",
 								isPresented: $showConfirmation,
@@ -97,12 +97,27 @@ struct MyToolbarItems: ToolbarContent {
 							}
 							.background(
 								NavigationLink(
-									destination: JobsView().navigationBarHidden(true),
-									isActive: $showJobs
-								) {
+									destination: JobsView())
+								{
 									EmptyView()
 								}
 							)
+					}
+						
+						NavigationLink(destination: PreViews()) {
+							HStack {
+								Text("Next")
+									.foregroundColor(Color.green)
+									.background(Color.clear)
+									.font(.title)
+								
+								Image(systemName: "arrow.right")
+									.foregroundColor(Color.green)
+									.font(.title)
+									.background(Color.clear)
+									.font(.title)
+								
+							}
 					}
 					Spacer()
 					HStack {
