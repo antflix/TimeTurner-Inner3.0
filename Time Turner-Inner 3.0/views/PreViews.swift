@@ -155,6 +155,8 @@ struct PreViews: View {
             }
         }.toolbar{MyToolbarItems()}
         .background(Color("Color 7"))
+		.navigationBarBackButtonHidden(true) // Hides the back button
+		.navigationBarHidden(true)
         .onChange(of: dataManager.isDarkMode) { newValue in
             UserDefaults.standard.set(newValue, forKey: "isDarkMode")
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
