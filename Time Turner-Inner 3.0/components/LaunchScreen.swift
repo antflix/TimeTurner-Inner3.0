@@ -6,7 +6,6 @@
 //
 import SwiftUI
 struct LaunchScreen: View {
-    @EnvironmentObject var dataManager: DataManager
 
     var body: some View {
         ZStack {
@@ -28,7 +27,7 @@ struct LaunchScreen: View {
             //                    .padding(.top, 50)
             //
             //            }
-            
+
             Image("time-splashscreen")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -40,7 +39,7 @@ struct LaunchScreen: View {
 //                .foregroundColor(.black)
 //                .padding(.bottom, 50)
 //          
-       
+
         .edgesIgnoringSafeArea(.all)
         .background(Color("Color 4"))
 

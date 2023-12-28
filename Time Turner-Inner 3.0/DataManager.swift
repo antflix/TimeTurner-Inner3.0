@@ -11,25 +11,13 @@ import SwiftUI
 // Class managing global variables
 class DataManager: ObservableObject {
 	static let shared = DataManager()
-	
+
 	// Published variables storing various data
 	@Published var selectedJobID: String = ""
-	@Published var selectedHours: String = ""
 	@Published var allSMSs: String = ""
 	@Published var allSMSBodies: [String] = []
-	@Published var selectedContacts: [CNContact]? // Define as an optional array
-	@Published var selectedPhoneNumber: String = UserDefaults.standard.string(forKey: "CustomPhoneNumber") ?? ""
-	@Published var selectedPhoneNumber2: String = UserDefaults.standard.string(forKey: "CustomPhoneNumber2") ?? ""
 	@Published var employeeData: [String: String] = [:]
 	@Published var isDarkMode: Bool
-	static var selectedContactName: String = "" // Global variable to store selected contact name
-	@Published var selectedContactPhoneNumber = ""
-	@Published var selectedContactPhoneNumber2 = ""
-	@Published var selectedContactName = ""
-	@Published var selectedContactName2 = ""
-	@Published var selectedContact1: CNContact?
-	@Published var selectedContact2: CNContact?
-	@Published var numbersList: String = ""
 	@Published var persistentMode: Bool = UserDefaults.standard.bool(forKey: "persistentMode") // Retrieve persistent mode status
 	@Published var selectedTime: Date {
 		didSet {
@@ -37,10 +25,9 @@ class DataManager: ObservableObject {
 		}
 	}
 	@Published var alarmNoise: String = "customAlarm-2.mp3"
-	
+
 	@Published var isAlarmSet: Bool = UserDefaults.standard.bool(forKey: "isAlarmSet")
 
-	
 	init() {
 		self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
 		//         self.selectedContact = DataManager.loadContact()
@@ -52,8 +39,7 @@ class DataManager: ObservableObject {
 			self.isAlarmSet = true
 			print("in if statement")
 			scheduleAlarm(at: selectedTime, soundName: alarmNoise)
-		}
-		else {
+		} else {
 			print("in else statement")
 			persistentMode = false
 			self.persistentMode = false
@@ -66,24 +52,19 @@ class DataManager: ObservableObject {
 			cancelAlarm()
 		}
 	}
-	
-	func toggleDarkMode() {
-		isDarkMode.toggle()
-		UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
-	}
+
 	// Dictionary to hold employee hours data
-	
+
 	// Method to set hours for a given employee name
 	func saveEmployeeHours(name: String, hours: String) {
 		employeeData[name] = hours
 	}
-	
+
 	// Method to get hours for a given employee name from the dictionary
 	func hoursForEmployee(_ employeeName: String) -> String {
 		return employeeData[employeeName] ?? ""
 	}
-	
-	
+
 	func scheduleAlarm(at time: Date, soundName: String) {
 		print("daily alarm function")
 		print("isAlarmSet: \(isAlarmSet)")
@@ -101,16 +82,16 @@ class DataManager: ObservableObject {
 		let now = calendar.date(from: nowComponents)!
 		let scheduledTimeComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: time)
 		var scheduledTime = calendar.date(from: scheduledTimeComponents)!
-		
+
 		if now > scheduledTime {
 			// If the time has already passed for today, schedule for the next day
 			scheduledTime = calendar.date(byAdding: .day, value: 1, to: scheduledTime)!
 		}
-		
+
 		let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.hour, .minute], from: scheduledTime), repeats: true)
-		
+
 		let request = UNNotificationRequest(identifier: "dailyAlarm", content: content, trigger: trigger)
-		
+
 		center.add(request) { error in
 			if let error = error {
 				print("Error scheduling daily notification: \(error.localizedDescription)")
@@ -123,7 +104,7 @@ class DataManager: ObservableObject {
 					if request.identifier == "dailyAlarm" {
 						print("dailyAlarm has been verified as activated")
 					}
-					
+
 				}
 			}
 		}
@@ -134,7 +115,7 @@ class DataManager: ObservableObject {
 
 		if isAlarmSet {
 			let center = UNUserNotificationCenter.current()
-			
+
 			let content = UNMutableNotificationContent()
 			content.title = "WARNING!!"
 			content.body = "Alarm will continue until you turn your time in!"
@@ -143,9 +124,9 @@ class DataManager: ObservableObject {
 			let nowComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
 			let now = calendar.date(from: nowComponents)!
 			let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-			
+
 			let request = UNNotificationRequest(identifier: "persistentAlarm", content: content, trigger: trigger)
-			
+
 			center.add(request) { error in
 				if let error = error {
 					print("Error scheduling persistent notification: \(error.localizedDescription)")
@@ -153,13 +134,13 @@ class DataManager: ObservableObject {
 					print("Persistent notification scheduled successfully, starting at \(now)")
 				}
 			}
-			
+
 			UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
 				for request in requests {
 					if request.identifier == "persistentAlarm" {
 						print("persistentAlarm has been verified as activated")
 					}
-					
+
 				}
 			}
 		}
@@ -170,7 +151,7 @@ class DataManager: ObservableObject {
 	}
 	func cancelAlarm() {
 		UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-		UserDefaults.standard.set(false, forKey: "isAlarmSet") 
+		UserDefaults.standard.set(false, forKey: "isAlarmSet")
 		UserDefaults.standard.synchronize()
 		print("cancel all alarms")
 	}
@@ -187,21 +168,20 @@ class DataManager: ObservableObject {
 		"Dennis",
 		"Jason",
 		"Jesse",
-		"Kevin",
+		"Kevin"
 		// Add other employee names here
 	]
 	func clearAllSMSData() {
 		allSMSs = "" // Clear the string
 		allSMSBodies = [] // Clear the array
-		
+
 	}
-	
-	
+
 	func saveSelectedContacts(_ contacts: [CNContact]) {
 		let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: contacts, requiringSecureCoding: false)
 		UserDefaults.standard.set(encodedData, forKey: "selectedContactsKey")
 	}
-	
+
 	func retrieveSelectedContacts() -> [CNContact]? {
 		if let savedData = UserDefaults.standard.data(forKey: "selectedContactsKey"),
 		   let decodedContacts = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self, CNContact.self], from: savedData) as? [CNContact] {
@@ -209,12 +189,11 @@ class DataManager: ObservableObject {
 		}
 		return nil
 	}
-	
+
 	func deleteSelectedContacts() {
 		UserDefaults.standard.removeObject(forKey: "selectedContactsKey")
-		selectedContacts = nil // Clear the selected contacts
 	}
-	
+
 }
 //    
 //    func saveSelectedNumbers() {
@@ -286,5 +265,3 @@ class DataManager: ObservableObject {
     //          return UserDefaults.standard.string(forKey: "CustomPhoneNumber") ?? ""
     //      }
     //  }
-    
-

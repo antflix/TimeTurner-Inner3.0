@@ -10,7 +10,7 @@ struct Job: Codable {
 struct ContentView: View {
     @StateObject var dataManager = DataManager()
 //    @StateObject var darkModeSettings = DataManager() // Use observed object for dark mode
-    
+
     @State private var selectedJobID: String?
     @Environment(\.colorScheme) var colorScheme
     @State private var isSettingsOpen = false // Add this line to declare isSettingsOpen
@@ -20,12 +20,11 @@ struct ContentView: View {
     @State private var isContactsPresented = false
 
     @State private var settingsPopoverAnchor: Anchor<CGRect>?
-    
-    
+
     enum Tab {
         case jobs, employee, employees, preview
     }
-    
+
     @State private var selectedTab: Tab = .jobs  // Track selected tab
     var body: some View {
           NavigationStack {
@@ -46,12 +45,11 @@ struct ContentView: View {
 //                          .toolbar{MyToolbarItems()}
                           .environmentObject(dataManager)
                   }
-              
-            
+
               }
           }
       }
-	
+
   }
 
 //            if isSettingsViewPresented {
@@ -113,7 +111,7 @@ struct ContentView: View {
 //            .padding(.leading, 100) // Add padding from the left
 //        }
 //    }
-//}
+// }
 //    struct SettingsView: View {
 //        var body: some View {
 //            ModeToggleButton().background(Color("Color 5"))
@@ -126,7 +124,7 @@ struct ContentView: View {
 //    }
 //
 ////
-//struct SettingsHandleView: View {
+// struct SettingsHandleView: View {
 //    @Binding var isSettingsViewPresented: Bool
 //
 //    var body: some View {
@@ -147,15 +145,15 @@ struct ContentView: View {
 //        .frame(maxWidth: .infinity, alignment: .trailing)
 //        .padding(.trailing)
 //    }
-//}
+// }
 //
-//struct SettingsView: View {
+// struct SettingsView: View {
 //    var body: some View {
 //        ModeToggleButton().background(Color("Color 5"))
 //
 //       
 //    }
-//}
+// }
 
 @available(iOS 17.0, *)
 struct ContentView_Previews: PreviewProvider {
@@ -173,7 +171,7 @@ struct ContentView_Previews: PreviewProvider {
       PreViews()
         .environmentObject(DataManager())
         .background(Color("Color 2"))
-        
+
 //      SettingsView()
 //          .environmentObject(DataManager())
 

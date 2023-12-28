@@ -5,8 +5,6 @@ struct EmployeesViews: View {
     @EnvironmentObject var dataManager: DataManager // Access DataManager passed via environmentObject
 
     @State private var showingPopover = false // Create a state variable to control popover visibility
-    @State var showPreView: Bool = false // Ensure it's declared as optional Bool?
-    @State private var settingsPopover = false // Create a state variable to control popover visibility
 
     var isAnyEmployeeAssignedHours: Bool {
         // Check if any employee has assigned hours in DataManager
@@ -28,7 +26,7 @@ struct EmployeesViews: View {
 							.frame(alignment: .leading)
 						Text("Employees").font(Font.custom("Quicksand", size: 30).bold())
 							.frame(maxWidth: .infinity * 0.90, alignment: .center)
-						
+
 						Text("Different crews/Different Hours").font(Font.custom("Quicksand", size: 12).bold())
 							.frame(maxWidth: .infinity * 0.90, alignment: .center)
 							.foregroundStyle(Color.black)
@@ -46,15 +44,15 @@ struct EmployeesViews: View {
 							Text("Instructions:")
 								.foregroundColor(Color("Color 6"))
 								.font(.title)
-							
+
 							Divider()
 								.background(Color("Color 6"))
-							
+
 							VStack(alignment: .leading, spacing: 5) {
 								HStack {
 									Circle().frame(width: 5, height: 5).foregroundColor(Color("Color 1")) // Custom bullet point
 									Text("Enter hours for each employee that you are turning in time for then, click").foregroundColor(Color("Color 6"))
-									
+
 									+
 									Text(" Submit")
 										.foregroundColor(Color("Color 1"))
@@ -85,15 +83,15 @@ struct EmployeesViews: View {
 			}
 			VStack {
 				ScrollView {
-					
+
 					ForEach(dataManager.employeeNames, id: \.self) { name in
 						EmployeeRowView(employeeName: name, dataManager: dataManager)
 							.padding(.bottom, 0)
-						
+
 							.cornerRadius(8) // Optional: Add corner radius to rows
 					}
 				}
-	
+
 				VStack {
 					HStack {
 						Spacer()
@@ -103,48 +101,30 @@ struct EmployeesViews: View {
 									.foregroundColor(Color.green)
 									.background(Color.clear)
 									.font(.title)
-								
+
 								Image(systemName: "arrow.right")
 									.foregroundColor(Color.green)
 									.font(.title)
 									.background(Color.clear)
 									.font(.title)
-								
+
 							}
 						}  .ignoresSafeArea()
 							.buttonStyle(PlainButtonStyle())
 							.disabled(!isAnyEmployeeAssignedHours)
 							.opacity(isAnyEmployeeAssignedHours ? 1.0 : 0.5)
 							.frame(alignment: .bottomTrailing)
-						
-						
+
 					}
 					Divider().frame(height: 2.0).background(
 						Color(.gray)
 					).padding(.bottom).ignoresSafeArea()
 				}
-				
-				//				
-				//				            Button(action: {
-				//				                // Save entered hours and route to PreView
-				//				                showPreView = true
-				//				            }, label: {
-				//				                Text("Submit")
-				//				            })
-				//				            .disabled(!isAnyEmployeeAssignedHours)
-				//				            .navigationDestination(
-				//				                isPresented: $showPreView) {
-				//				                    PreViews().environmentObject(dataManager)
-				//				                    Text("")
-				//				            }
-				//				            .environmentObject(dataManager) // Inject DataManager as environment object
-				//				            .navigationBarBackButtonHidden(true) // Hides the back button
-				//				            .navigationBarHidden(true)
-				//			}
-			}.toolbar{MyToolbarItems()}
+
+			}.toolbar {MyToolbarItems()}
 				.background(Color("Color 7"))
-				.navigationBarTitleDisplayMode(.inline)
-			
+				.navigationBarBackButtonHidden(true) // Hides the back button
+				.navigationBarHidden(true)
 				.onChange(of: dataManager.isDarkMode) { newValue in
 					UserDefaults.standard.set(newValue, forKey: "isDarkMode")
 					if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -152,7 +132,7 @@ struct EmployeesViews: View {
 						window.rootViewController?.overrideUserInterfaceStyle = newValue ? .dark : .light
 					}
 				}
-		}.navigationBarTitleDisplayMode(.inline)
+		}
 	}
 }
 
@@ -222,8 +202,11 @@ struct EmployeeRowView: View {
 
 @available(iOS 17.0, *)
 struct EmployeesViews_Previews: PreviewProvider {
-    static var previews: some View {
-        EmployeesViews()
-            .environmentObject(DataManager())
-    }
+	static var previews: some View {
+		NavigationStack {
+			EmployeesViews()
+				.environmentObject(DataManager())
+		}
+
+	}
 }

@@ -9,13 +9,13 @@ import SwiftUI
 import AVFoundation
 struct AlarmSound: View {
     var audioPlayer: AVAudioPlayer?
-    
+
     // Function to play sound
     mutating func playSound() {
         guard let soundURL = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3") else {
             return
         }
-        
+
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             audioPlayer?.play()
@@ -23,7 +23,7 @@ struct AlarmSound: View {
             print("Error playing sound: \(error.localizedDescription)")
         }
     }
-    
+
     var body: some View {
         VStack {
             Text("Your App Content")
@@ -33,22 +33,22 @@ struct AlarmSound: View {
             scheduleNotification()
         }
     }
-    
+
     // Function to schedule a local notification
     func scheduleNotification() {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "Time to turn in hours!"
         notificationContent.sound = .default // Use default notification sound
-        
+
         // Set the desired time for the notification
         var dateComponents = DateComponents()
         dateComponents.hour = 20 // Set the hour here (24-hour format)
         dateComponents.minute = 0 // Set the minute here
-        
+
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        
+
         let request = UNNotificationRequest(identifier: "dailyAlarm", content: notificationContent, trigger: trigger)
-        
+
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("Error scheduling notification: \(error.localizedDescription)")

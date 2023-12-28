@@ -5,8 +5,7 @@ struct ContactsSelectionView: View {
 	@EnvironmentObject var dataManager: DataManager
 	@State private var selectedContacts: [CNContact]? = []
 	@State private var isContact1PickerPresented = false
-	
-	
+
 	var body: some View {
 		VStack {
 			Capsule()
@@ -27,26 +26,25 @@ struct ContactsSelectionView: View {
 			}
 			Button(action: {
 				self.isContact1PickerPresented = true
-			}){
+			}) {
 				HStack {
 					Image(systemName: "person.fill.questionmark")
 						.symbolRenderingMode(.palette)
 						.foregroundStyle(Color.red, Color.green)
-					
+
 					Text("Add Contacts")
-					
+
 				}.padding()
 					.foregroundColor(.white)
 					.background(Color.blue)
 					.cornerRadius(8)
 			}
 			.sheet(isPresented: $isContact1PickerPresented) {
-				
+
 				ContactPickerViewController(selectedContacts: $selectedContacts)
-				
-				
+
 			}
-			
+
 			//
 		}.frame(maxWidth: .infinity)
 			.background(Color("Color 7"))
@@ -56,7 +54,7 @@ struct ContactsSelectionView: View {
 					self.selectedContacts = savedContacts
 				}
 			}
-		
+
 	}
 	func deleteContact(_ contact: CNContact) {
 		if let index = selectedContacts?.firstIndex(of: contact) {
@@ -69,7 +67,7 @@ struct ContactsSelectionView: View {
 struct ContactRow: View {
 	let contact: CNContact
 	let onDelete: () -> Void // No need for onDelete in this context
-	
+
 	var body: some View {
 		HStack {
 			Text("\(contact.givenName) \(contact.familyName)")

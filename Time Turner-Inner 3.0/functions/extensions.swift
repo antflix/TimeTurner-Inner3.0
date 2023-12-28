@@ -5,7 +5,6 @@
 //  Created by User on 12/8/23.
 //
 
-
 import SwiftUI
 
 struct AppearanceModeKey: EnvironmentKey {
@@ -24,7 +23,6 @@ extension String {
             .joined()
     }
 }
-
 
 extension ShapeStyle where Self == Color {
     static var random: Color {

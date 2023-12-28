@@ -1,7 +1,7 @@
 import SwiftUI
 struct AlarmSettingView: View {
 	@EnvironmentObject var dataManager: DataManager
-	
+
 	var body: some View {
 		VStack {
 			Capsule()
@@ -14,10 +14,10 @@ struct AlarmSettingView: View {
 			DatePicker("", selection: $dataManager.selectedTime, displayedComponents: .hourAndMinute)
 				.datePickerStyle(WheelDatePickerStyle())
 				.foregroundStyle(Color("Color 1")) // Use a wheel-style picker for time selection
-			HStack{
+			HStack {
 				Button("Set Notification ") {
 					dataManager.isAlarmSet = true
-					
+
 					dataManager.scheduleAlarm(at: dataManager.selectedTime, soundName: dataManager.alarmNoise)
 				}.buttonStyle(PlainButtonStyle())
 					.padding()
@@ -55,8 +55,7 @@ struct AlarmSettingView: View {
 			}
 		}
 		.padding()
-		
-		
+
 	}
 	// Function to format time for display
 	private func formattedTime(_ time: Date) -> String {

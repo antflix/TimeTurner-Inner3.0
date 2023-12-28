@@ -15,17 +15,17 @@ public struct P22_FabulaToggleStyle: View {
     @State private var isOn: Bool = false
     @State private var tw: Double = 80
     @State private var th: Double = 44
-    
+
     public init() {}
     public var body: some View {
-        GeometryReader{ proxy in
+        GeometryReader { proxy in
             ZStack {
                 Color.clear
                 Toggle("", isOn: $isOn)
                     .frame(width: tw, height: th)
                     .toggleStyle(FabulaToggleStyle())
                     .padding()
-                
+
                 FabulaSheet(isOpen: $isOpen) {
                     Text("Size").modifier(FabulaSectionModifier())
                     FabulaSlider(value: $tw, title: "Width", min: FabulaToggleStyle.minWidth, max: proxy.size.width / 2)
@@ -36,23 +36,23 @@ public struct P22_FabulaToggleStyle: View {
     }
 }
 
-fileprivate
+private
 struct BottomSheet<Content>: View where Content: View {
     @Binding var isOpen: Bool
     var constants: SheetConstants = SheetConstants()
     @ViewBuilder var content: () -> Content
-    
+
     @GestureState private var translation: CGFloat = 0
     @State private var activeAnimation: Bool = false
     @State private var coverOpacity: CGFloat = 0
-    
+
     private let limitDragGap: CGFloat = 120
     private var dragGesture: some Gesture {
         DragGesture().updating(self.$translation) { value, state, _ in
             guard abs(value.translation.width) < limitDragGap else { return }
             state = value.translation.height
         }
-        .onChanged{ value in
+        .onChanged { value in
             guard abs(value.translation.width) < limitDragGap else { return }
             let max = constants.maxArea - constants.minArea
             let delta = isOpen ? (value.translation.height) / max : 1 - ((value.translation.height * -1) / max)
@@ -64,11 +64,11 @@ struct BottomSheet<Content>: View where Content: View {
             coverOpacity = isOpen ? 0 : 1.0
         }
     }
-    
+
     private var offset: CGFloat {
         isOpen ? 0 : constants.maxArea - constants.minArea
     }
-    
+
     private var indicator: some View {
         ZStack {
             Rectangle()
@@ -86,7 +86,7 @@ struct BottomSheet<Content>: View where Content: View {
                 )
         }
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
             constants.backgroundColor.opacity(constants.backgroundDisabled ? 0 : (1 - coverOpacity))
@@ -137,7 +137,7 @@ struct BottomSheet<Content>: View where Content: View {
                 activeAnimation = true
                 if isOpen {
                     coverOpacity = 0
-                }else {
+                } else {
                     coverOpacity = 1
                 }
             }
@@ -145,24 +145,24 @@ struct BottomSheet<Content>: View where Content: View {
     }
 }
 
-fileprivate
+private
 struct RoundedCorners: InsettableShape {
     var tl: CGFloat = 0.0
     var tr: CGFloat = 0.0
     var bl: CGFloat = 0.0
     var br: CGFloat = 0.0
     var insetAmount: CGFloat = 0
-    
+
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let w = rect.size.width
         let h = rect.size.height
-        
+
         let tr = min(min(self.tr, h/2), w/2)
         let tl = min(min(self.tl, h/2), w/2)
         let bl = min(min(self.bl, h/2), w/2)
         let br = min(min(self.br, h/2), w/2)
-        
+
         path.move(to: CGPoint(x: w / 2.0 + insetAmount, y: insetAmount))
         path.addLine(to: CGPoint(x: w - tr + insetAmount, y: insetAmount))
         path.addArc(center: CGPoint(x: w - tr + insetAmount, y: tr + insetAmount), radius: tr, startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 0), clockwise: false)
@@ -175,7 +175,7 @@ struct RoundedCorners: InsettableShape {
         path.closeSubpath()
         return path
     }
-    
+
     func inset(by amount: CGFloat) -> some InsettableShape {
         var rectangle = self
         rectangle.insetAmount += amount
@@ -190,21 +190,21 @@ extension Animation {
     }
 }
 
-fileprivate
+private
 struct RightSheet<Content>: View where Content: View {
     @Binding var isOpen: Bool
     var constants: SheetConstants = SheetConstants()
     @ViewBuilder var content: () -> Content
-    
+
     @GestureState private var translation: CGFloat = 0
     @State private var activeAnimation: Bool = false
     @State private var coverOpacity: CGFloat = 0
-    
+
     private var dragGesture: some Gesture {
         DragGesture().updating(self.$translation) { value, state, _ in
             state = value.translation.width
         }
-        .onChanged{ value in
+        .onChanged { value in
             let max = constants.maxArea - constants.minArea
             let delta = isOpen ? (value.translation.width) / max : 1 - ((value.translation.width * -1) / max)
             coverOpacity = delta > 1 ? 1 : (delta < 0 ? 0 : delta)
@@ -214,11 +214,11 @@ struct RightSheet<Content>: View where Content: View {
             coverOpacity = isOpen ? 0 : 1.0
         }
     }
-    
+
     private var offset: CGFloat {
         isOpen ? 0 : constants.maxArea - constants.minArea
     }
-    
+
     private var indicator: some View {
         ZStack {
             Rectangle()
@@ -236,7 +236,7 @@ struct RightSheet<Content>: View where Content: View {
                 )
         }
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
             constants.backgroundColor.opacity(constants.backgroundDisabled ? 0 : (1 - coverOpacity))
@@ -287,7 +287,7 @@ struct RightSheet<Content>: View where Content: View {
                 activeAnimation = true
                 if isOpen {
                     coverOpacity = 0
-                }else {
+                } else {
                     coverOpacity = 1
                 }
             }
@@ -295,32 +295,32 @@ struct RightSheet<Content>: View where Content: View {
     }
 }
 
-fileprivate
+private
 struct SheetConstants {
     var minArea: CGFloat = 36
     var maxArea: CGFloat = 200
     var radius: CGFloat = 12
-    
+
     var backgroundDisabled: Bool = true
     var backgroundColor: Color = Color.black.opacity(0.1)
-    
+
     var contentCoverColor: Color = Color.white
     var contentBGColor: Color = Color.white
-    
+
     var indicatorMin: CGFloat = 4
     var indicatorMax: CGFloat = 34
     var indicatorColor: Color = Color.black
     var indicatorBGColor: Color = Color.gray
 }
 
-fileprivate
+private
 struct FabulaSlider: View {
     @Binding var value: Double
     var title: String = ""
     var min: CGFloat = 0
     var max: CGFloat = 100
     var onEditingChanged: (Bool) -> Void = { _ in }
-    
+
     var body: some View {
         HStack {
             Text(title)
@@ -339,7 +339,7 @@ struct FabulaSlider: View {
     }
 }
 
-fileprivate
+private
 struct FabulaSectionModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -349,7 +349,7 @@ struct FabulaSectionModifier: ViewModifier {
     }
 }
 
-fileprivate
+private
 struct FabulaSheet<Content>: View where Content: View {
     @Binding var isOpen: Bool
 #if os(iOS)
@@ -360,41 +360,41 @@ struct FabulaSheet<Content>: View where Content: View {
             minArea: 38,
             maxArea: 270,
             radius: 16,
-            
+
             backgroundDisabled: false,
             backgroundColor: Color.black.opacity(0.12),
-            
+
             contentCoverColor: Color.red,
             contentBGColor: Color.blue.opacity(0.9),
-            
+
             indicatorMin: 4,
             indicatorMax: 34,
             indicatorColor: Color.black,
             indicatorBGColor: Color.gray.opacity(0.9)
         )
     }
-    
+
     var constants2: SheetConstants {
         SheetConstants(
             minArea: 38,
             maxArea: 300,
             radius: 16,
-            
+
             backgroundDisabled: false,
             backgroundColor: Color.black.opacity(0.12),
-            
+
             contentCoverColor: Color.red,
             contentBGColor: Color.blue.opacity(0.9),
-            
+
             indicatorMin: 4,
             indicatorMax: 34,
             indicatorColor: Color.black,
             indicatorBGColor: Color.gray.opacity(0.9)
         )
     }
-    
+
     @ViewBuilder var content: () -> Content
-    
+
     var body: some View {
         ZStack {
 #if os(iOS)
@@ -403,12 +403,12 @@ struct FabulaSheet<Content>: View where Content: View {
                     RightSheet(isOpen: $isOpen, constants: constants2) {
                         getContent()
                     }
-                }else {
+                } else {
                     if verticalSizeClass == .regular {
                         BottomSheet(isOpen: $isOpen, constants: constants) {
                             getContent()
                         }
-                    }else {
+                    } else {
                         RightSheet(isOpen: $isOpen, constants: constants2) {
                             getContent()
                         }
@@ -422,7 +422,7 @@ struct FabulaSheet<Content>: View where Content: View {
 #endif
         }
     }
-    
+
     private func getContent() -> some View {
         VStack(alignment: .leading) {
             self.content()
@@ -432,15 +432,15 @@ struct FabulaSheet<Content>: View where Content: View {
     }
 }
 
-fileprivate
+private
 struct FabulaToggleStyle: ToggleStyle {
-    
+
     @GestureState private var translation: CGFloat = 0
     @Environment(\.colorScheme) private var colorScheme
-    
+
     static let minWidth: CGFloat = 52
     static let minHeight: CGFloat = 32
-    
+
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
             Capsule()
@@ -457,12 +457,12 @@ struct FabulaToggleStyle: ToggleStyle {
             .mask(
                 Capsule()
             )
-            
+
             Rectangle()
                 .fill(Color.clear)
                 .overlay(
                     GeometryReader { proxy in
-                        ZStack{
+                        ZStack {
                             Circle().fill(Color.blue)
                                 .frame(width: getThumbSize(proxy))
                                 .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.4 : 0.2), radius: proxy.size.height * 0.05)
@@ -480,7 +480,7 @@ struct FabulaToggleStyle: ToggleStyle {
                                             .scaleEffect(configuration.isOn ? 0.2 : 1)
                                     }
                                 )
-                                .rotation3DEffect(Angle(degrees: configuration.isOn ? 0 : -270), axis: (x: 0, y: 0, z:1))
+                                .rotation3DEffect(Angle(degrees: configuration.isOn ? 0 : -270), axis: (x: 0, y: 0, z: 1))
                         }
                         .offset(x: configuration.isOn ? proxy.frame(in: .local).maxX - (getThumbSize(proxy) * 1.06) : proxy.frame(in: .local).minX + (proxy.size.height - getThumbSize(proxy) * 1.06))
                     }
@@ -488,13 +488,13 @@ struct FabulaToggleStyle: ToggleStyle {
                             DragGesture().updating(self.$translation) { value, state, _ in
                                 state = value.translation.width
                             }
-                                .onChanged{ value in
+                                .onChanged { value in
                                     withAnimation(.customSpring) {
                                         configuration.isOn = value.translation.width > 0
                                     }
                                 }
-                                .onEnded{ value in
-                                    
+                                .onEnded { _ in
+
                                 }
                                             )
                 )
@@ -506,9 +506,9 @@ struct FabulaToggleStyle: ToggleStyle {
             }
         }
         .frame(minWidth: FabulaToggleStyle.minWidth, minHeight: FabulaToggleStyle.minHeight)
-        
+
     }
-    
+
     private func getThumbSize(_ proxy: GeometryProxy) -> CGFloat {
         proxy.size.height - proxy.size.height * 0.1
     }

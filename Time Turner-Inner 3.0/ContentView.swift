@@ -1,36 +1,15 @@
 import MessageUI
 import SwiftUI
 
-struct Job: Codable {
-	let jobId: String
-	let jobName: String
-	let jobDate: String
-}
-
-struct JobViewModel: Codable {
-	let job: Job
-	var isPopoverShown: Bool
-}
 @available(iOS 17.0, *)
 struct ContentView: View {
 	@StateObject var dataManager = DataManager()
 	//    @StateObject var darkModeSettings = DataManager() // Use observed object for dark mode
-	
-	@State private var selectedJobID: String?
-	@Environment(\.colorScheme) var colorScheme
-	@State private var isSettingsOpen = false // Add this line to declare isSettingsOpen
-	@State private var symbolName = "gear"
-	@State private var isSettingsViewPresented = false
-	@State private var isPopoverPresented = false
-	@State private var isContactsPresented = false
-	
-	@State private var settingsPopoverAnchor: Anchor<CGRect>?
-	
-	
+
 	enum Tab {
 		case jobs, employee, employees, preview
 	}
-	
+
 	@State private var selectedTab: Tab = .jobs  // Track selected tab
 	var body: some View {
 		NavigationStack {
@@ -38,9 +17,10 @@ struct ContentView: View {
 				switch selectedTab {
 					case .jobs:
 						JobsView()
+							.navigationBarTitleDisplayMode(.automatic)
+
 					case .employee:
-						EmployeeView()
-							.navigationBarTitleDisplayMode(.inline)
+						EmployeeView().navigationBarTitleDisplayMode(.automatic)
 
 						//                          .toolbar{MyToolbarItems()}
 							.environmentObject(dataManager)
@@ -57,14 +37,13 @@ struct ContentView: View {
 						//                          .toolbar{MyToolbarItems()}
 							.environmentObject(dataManager)
 				}
-				
-				
-			}
+
+			}.navigationBarTitleDisplayMode(.inline)
 		}.accentColor(.white)
 			.navigationBarTitleDisplayMode(.inline)
 
 	}
-	
+
 }
 
 //            if isSettingsViewPresented {
@@ -126,7 +105,7 @@ struct ContentView: View {
 //            .padding(.leading, 100) // Add padding from the left
 //        }
 //    }
-//}
+// }
 //    struct SettingsView: View {
 //        var body: some View {
 //            ModeToggleButton().background(Color("Color 5"))
@@ -139,7 +118,7 @@ struct ContentView: View {
 //    }
 //
 ////
-//struct SettingsHandleView: View {
+// struct SettingsHandleView: View {
 //    @Binding var isSettingsViewPresented: Bool
 //
 //    var body: some View {
@@ -160,35 +139,36 @@ struct ContentView: View {
 //        .frame(maxWidth: .infinity, alignment: .trailing)
 //        .padding(.trailing)
 //    }
-//}
+// }
 //
-//struct SettingsView: View {
+// struct SettingsView: View {
 //    var body: some View {
 //        ModeToggleButton().background(Color("Color 5"))
 //
 //
 //    }
-//}
+// }
 
 @available(iOS 17.0, *)
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView()
-			.environmentObject(DataManager())
-			.background(Color("Color 2"))
-		
-		EmployeeView()
-			.environmentObject(DataManager())
-			.background(Color("Color 2"))
-		EmployeesViews()
-			.environmentObject(DataManager())
-			.background(Color("Color 2"))
-		PreViews()
-			.environmentObject(DataManager())
-			.background(Color("Color 2"))
-		
+
+			ContentView()
+				.environmentObject(DataManager())
+				.background(Color("Color 2"))
+
+			EmployeeView()
+				.environmentObject(DataManager())
+				.background(Color("Color 2"))
+			EmployeesViews()
+				.environmentObject(DataManager())
+				.background(Color("Color 2"))
+			PreViews()
+				.environmentObject(DataManager())
+				.background(Color("Color 2"))
+
 		//      SettingsView()
 		//          .environmentObject(DataManager())
-		
+
 	}
 }

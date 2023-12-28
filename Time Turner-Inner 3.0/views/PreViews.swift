@@ -11,43 +11,20 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct PreViews: View {
-    @State private var messageText = "Content from the preview app"
     @EnvironmentObject var dataManager: DataManager
-    @State private var showingPopover = false // Create a state variable to control popover visibility
-    @State private var customPhoneNumber: String = UserDefaults.standard.string(forKey: "CustomPhoneNumber") ?? ""
-    @State private var customPhoneNumber2: String = UserDefaults.standard.string(forKey: "CustomPhoneNumber2") ?? ""
-    @State private var showAlert = false
-    @State private var settingsPopover = false // Create a state variable to control popover visibility//    @Binding var isSettingsViewPresented: Bool
-//    @State private var recipient: String = UserDefaults.standard.string(forKey: "CustomPhoneNumber") ?? ""
     // To save the formatted data for later use:
     @State private var savedData: String = "" // State variable to store the formatted data
-    
-    
+
     func generateSMSBody() {
         let sortedOutput = SMSGenerator.sortedFormat(dataManager: dataManager)
         let smsBodyWithDate = SMSGenerator.generateSMSURL(
-            sortedOutput: sortedOutput, dataManger: dataManager)
+            sortedOutput: sortedOutput)
         // Append the generated SMS body to the array
         dataManager.allSMSBodies.append(smsBodyWithDate)
-        
+
         // Update savedData to show all stored SMS bodies
         dataManager.allSMSs = dataManager.allSMSBodies.joined(separator: "\n\n")
-        
-        if let contact1 = dataManager.selectedContact1 {
-            if let phoneNumber = contact1.phoneNumbers.first?.value.stringValue {
-                dataManager.selectedContactPhoneNumber = phoneNumber
-            }
-        }
-        if let contact2 = dataManager.selectedContact2 {
-            if let phoneNumber2 = contact2.phoneNumbers.first?.value.stringValue {
-                dataManager.selectedContactPhoneNumber2 = phoneNumber2
-            }
-        }
-        if !dataManager.selectedContactPhoneNumber2.isEmpty {
-            dataManager.selectedPhoneNumber = "\(dataManager.selectedContactPhoneNumber), \(dataManager.selectedContactPhoneNumber2)"
-           } else {
-               dataManager.selectedPhoneNumber = "\(dataManager.selectedContactPhoneNumber)"
-           }
+
        }
     func retrieveAndFormatContacts() -> String {
             // Retrieve saved contacts from UserDefaults using your DataManager
@@ -78,7 +55,7 @@ struct PreViews: View {
             .background(Color.blue)
             .foregroundColor(.white)
             .font(.headline)
-            
+
             VStack {
                 HStack {
                     Text("TIME!!!")
@@ -87,10 +64,10 @@ struct PreViews: View {
                         .background(Color.green.opacity(0.9))
                         .clipShape(BubbleShape(myMessage: false))
                         .font(.system(size: 14.0))
-                    
+
                     Spacer()
                 }.padding(.trailing, 55).padding(.vertical, 10)
-                
+
                 HStack {
                     Spacer()
                     Text("\(dataManager.allSMSs)")
@@ -126,7 +103,7 @@ struct PreViews: View {
                             .foregroundStyle(Color.green)
                             .font(.title)
                     }
-                    
+
                 )
                 .buttonStyle(PlainButtonStyle()) //
                     .padding()
@@ -135,7 +112,7 @@ struct PreViews: View {
                         Text("Add More Time")
                             .foregroundColor(Color.orange)
                             .background(Color.clear)
-                        
+
                         Image(systemName: "hourglass.badge.plus")
                             .foregroundColor(Color.orange)
                             .font(.title)
@@ -153,7 +130,7 @@ struct PreViews: View {
 					Color(.gray)
 				).padding(.bottom).ignoresSafeArea()
             }
-        }.toolbar{MyToolbarItems()}
+        }.toolbar {MyToolbarItems()}
         .background(Color("Color 7"))
 		.navigationBarBackButtonHidden(true) // Hides the back button
 		.navigationBarHidden(true)
@@ -164,7 +141,7 @@ struct PreViews: View {
                 window.rootViewController?.overrideUserInterfaceStyle = newValue ? .dark : .light
             }
         }
-        
+
         //            .alert(isPresented: $showAlert) {
         //                Alert(
         //                    title: Text("Enter Phone Number"),
@@ -178,26 +155,23 @@ struct PreViews: View {
         //                    Button: .cancel(Text("Cancel"))
         //
         //                )
-        
-        
+
         //                            dismissButton: .default(Text("OK"))
-        
+
     }
-    
+
 }
 
     func sendMessage(sms: String) {
             guard let strURL = sms.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                   let url = URL(string: strURL)
             else { return }
-            
+
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
 		dataManager.stopPersistentAlarm()
 //		stopPersistentNotifications()
 
-        
         }
-    
 
 struct BubbleShape: Shape {
     var myMessage: Bool

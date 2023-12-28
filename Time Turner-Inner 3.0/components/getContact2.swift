@@ -3,15 +3,13 @@
 import SwiftUI
 import ContactsUI
 struct GetContact2: View {
-   
+
     @State private var customPhoneNumber2: String = UserDefaults.standard.string(forKey: "CustomPhoneNumber2") ?? ""
-    @State private var selectedContact: String?
     @State private var coordinator2: Coordinator? // Coordinator instance
 
     var body: some View {
         VStack {
-       
-            
+
             Button("Contact #2") {
                 let contactPicker = CNContactPickerViewController()
                 coordinator2 = Coordinator(parent: self, customPhoneNumber2: $customPhoneNumber2)
@@ -25,8 +23,7 @@ struct GetContact2: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     .buttonStyle(PlainButtonStyle())
-            
-            
+
         }
     }
 
